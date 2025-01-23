@@ -16,19 +16,12 @@ const Page = async ({ searchParams, params }: SearchParamProps) => {
 
   return (
     <div className='page-container'>
-      <section className='w-full'>
+      <section className='w-full md:flex md:justify-between'>
         <h1 className='h1 capitalize'>{type}</h1>
 
-        <div className='total-size-section'>
-          <p className='body-1'>
-            Total: <span className='h5'>0 MB</span>
-          </p>
-
-          <div className='sort-container'>
-            <p className='body-1 hidden text-light-200 sm:block'>Sort by:</p>
-
-            <Sort />
-          </div>
+        <div className='sort-container'>
+          <p className='body-1 hidden text-light-200 sm:block'>Sort by:</p>
+          <Sort />
         </div>
       </section>
 

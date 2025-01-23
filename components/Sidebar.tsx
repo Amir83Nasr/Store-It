@@ -1,48 +1,48 @@
-"use client";
+'use client'
 
-import Link from "next/link";
-import Image from "next/image";
-import { navItems } from "@/constants";
-import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import Link from 'next/link'
+import Image from 'next/image'
+import { navItems } from '@/constants'
+import { usePathname } from 'next/navigation'
+import { cn } from '@/lib/utils'
 
 interface Props {
-  fullName: string;
-  avatar: string;
-  email: string;
+  fullName: string
+  avatar: string
+  email: string
 }
 
 const Sidebar = ({ fullName, avatar, email }: Props) => {
-  const pathname = usePathname();
+  const pathname = usePathname()
 
   return (
-    <aside className="sidebar">
-      <Link href="/">
+    <aside className='sidebar'>
+      <Link href='/'>
         <Image
-          src="/assets/icons/logo-full-brand.svg"
-          alt="logo"
+          src='/assets/icons/logo-full-brand.svg'
+          alt='logo'
           width={160}
           height={50}
-          className="hidden h-auto lg:block"
+          className='hidden h-auto lg:block'
         />
 
         <Image
-          src="/assets/icons/logo-brand.svg"
-          alt="logo"
+          src='/assets/icons/logo-brand.svg'
+          alt='logo'
           width={52}
           height={52}
-          className="lg:hidden"
+          className='lg:hidden'
         />
       </Link>
 
-      <nav className="sidebar-nav">
-        <ul className="flex flex-1 flex-col gap-6">
+      <nav className='sidebar-nav'>
+        <ul className='flex flex-1 flex-col gap-6'>
           {navItems.map(({ url, name, icon }) => (
-            <Link key={name} href={url} className="lg:w-full">
+            <Link key={name} href={url} className='lg:w-full'>
               <li
                 className={cn(
-                  "sidebar-nav-item",
-                  pathname === url && "shad-active",
+                  'sidebar-nav-item',
+                  pathname === url && 'shad-active'
                 )}
               >
                 <Image
@@ -51,11 +51,11 @@ const Sidebar = ({ fullName, avatar, email }: Props) => {
                   width={24}
                   height={24}
                   className={cn(
-                    "nav-icon",
-                    pathname === url && "nav-icon-active",
+                    'nav-icon',
+                    pathname === url && 'nav-icon-active'
                   )}
                 />
-                <p className="hidden lg:block">{name}</p>
+                <p className='hidden lg:block'>{name}</p>
               </li>
             </Link>
           ))}
@@ -63,27 +63,27 @@ const Sidebar = ({ fullName, avatar, email }: Props) => {
       </nav>
 
       <Image
-        src="/assets/images/files-2.png"
-        alt="logo"
+        src='/files.svg'
+        alt='logo'
         width={506}
         height={418}
-        className="w-full"
+        className='w-full'
       />
 
-      <div className="sidebar-user-info">
+      <div className='sidebar-user-info'>
         <Image
           src={avatar}
-          alt="Avatar"
+          alt='Avatar'
           width={44}
           height={44}
-          className="sidebar-user-avatar"
+          className='sidebar-user-avatar'
         />
-        <div className="hidden lg:block">
-          <p className="subtitle-2 capitalize">{fullName}</p>
-          <p className="caption">{email}</p>
+        <div className='hidden lg:block'>
+          <p className='subtitle-2 capitalize'>{fullName}</p>
+          <p className='caption'>{email}</p>
         </div>
       </div>
     </aside>
-  );
-};
-export default Sidebar;
+  )
+}
+export default Sidebar
